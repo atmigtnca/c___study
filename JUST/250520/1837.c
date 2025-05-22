@@ -16,7 +16,7 @@ int main(int argc, char*argv[]){
     func(arr1);
     func(arr2);
 
-    for(int i=0; i<5; i++) printf("%d",arr1[i]);
+    for(int i=0; i<5; i++) printf("%d", arr1[i]);
     printf("\n");
     for(int i=0; i<5; i++) printf("%d", arr2[i]);
 
