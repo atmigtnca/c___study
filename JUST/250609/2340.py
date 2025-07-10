@@ -1,5 +1,6 @@
 import random
 alphabet = 'qwertyuiopalskdjfhgmznxbcv1029384756!@#$%?~QWERTYUIOPLKJHGFDSAZXCVBNM'
+
 def genPass():
     global alphabet
     password = ''
