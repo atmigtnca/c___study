@@ -1,5 +1,11 @@
 #include <stdio.h>
 
+int multiply(int x, int y);
+int getUserInput(void);
+void printGugudan(int dan);
+void printGugudanAll(void);
+
+
 int multiply(int x, int y){
     int result = x * y;
 
@@ -33,17 +39,4 @@ void printGugudanAll(void){
             printf("%d*%d=%2d ",j, i, multiply(j,i));
         printf("\n");
     }
-}
-
-
-int main(void){
-    int dan = getUserInput();
-
-    if(2<=dan && dan<=9)
-        printGugudan(dan);
-    else
-        printGugudanAll();
-
-
-    return 0;
 }
