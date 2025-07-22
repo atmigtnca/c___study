@@ -1,7 +1,6 @@
 #include<stdio.h>
 int main(void){
-    int cde[8] = {0};
-    int ju = 0, yk = 0;
+    int cde[8] = {0}, ju = 0, yk = 0;
     for (int i = 0; i < 8; i++)scanf("%d", &cde[i]);
     for (int i = 0; i < 7; i++){
         if (cde[i] < cde[i+1])ju++;
