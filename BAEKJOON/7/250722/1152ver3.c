@@ -3,6 +3,7 @@
 int main(void){
     int dan=1;
     char arr[1000001] = {'\0'};
+    
     fgets(arr, sizeof(arr), stdin);
 
     if (arr[0] == ' ')dan+=-1;
