@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<title>CSS Grid 초간단 예시</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 20px; }
+  h2 { margin: 18px 0 8px; }
+  .g { display: grid; gap: 8px; margin-bottom: 16px; }
+  .cell { background:#eef2ff; border:1px solid #c7d2fe; padding:12px; text-align:center; border-radius:8px; }
+
+  /* 1) 기본 3열 그리드 */
+  .grid-basic { grid-template-columns: repeat(3, 1fr); }
+
+  /* 2) 반응형 카드: 화면 폭에 따라 자동 칼럼 */
+  .grid-cards { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+
+  /* 3) 셀 병합(span) */
+  .grid-span { grid-template-columns: repeat(4, 1fr); }
+  .col-2 { grid-column: span 2; }  /* 가로 2칸 병합 */
+  .row-2 { grid-row: span 2; }     /* 세로 2칸 병합 */
+</style>
+</head>
+<body>
+  <h2>1) 기본 3열 그리드</h2>
+  <div class="g grid-basic">
+    <div class="cell">1</div><div class="cell">2</div><div class="cell">3</div>
+    <div class="cell">4</div><div class="cell">5</div><div class="cell">6</div>
+  </div>
+
+  <h2>2) 반응형 카드 (auto-fit + minmax)</h2>
+  <div class="g grid-cards">
+    <div class="cell">Card 1</div><div class="cell">Card 2</div>
+    <div class="cell">Card 3</div><div class="cell">Card 4</div>
+    <div class="cell">Card 5</div>
+  </div>
+
+  <h2>3) 셀 병합 (grid-column/row: span)</h2>
+  <div class="g grid-span">
+    <div class="cell col-2">가로 2칸</div>
+    <div class="cell">A</div>
+    <div class="cell row-2">세로 2칸</div>
+    <div class="cell">B</div>
+    <div class="cell">C</div>
+    <div class="cell">D</div>
+  </div>
+</body>
+</html>

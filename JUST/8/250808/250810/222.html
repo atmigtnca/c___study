@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>변수와 상수 예시</title>
+<script>
+  // let: 값 변경 가능
+  let age = 20;
+  console.log("초기 age:", age);
+  age = 21; // 값 변경
+  console.log("변경된 age:", age);
+
+  // const: 값 변경 불가
+  const pi = 3.14;
+  console.log("pi:", pi);
+  // pi = 3.1415; // ❌ 오류! 상수는 재할당 불가
+
+  // const도 객체나 배열의 '내용'은 수정 가능
+  const colors = ["red", "blue"];
+  colors.push("green"); // 배열에 항목 추가 (가능)
+  console.log("colors:", colors);
+</script>
+</head>
+<body>
+  <h1>변수(let)와 상수(const) 예시</h1>
+  <p>콘솔(F12)에서 결과를 확인하세요.</p>
+</body>
+</html>

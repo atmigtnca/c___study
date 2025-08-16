@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>DOM 노드 추가/삭제/수정 예시</title>
+<script>
+  window.addEventListener("load", () => {
+    const list = document.getElementById("myList");
+
+    // 1) 노드 추가
+    document.getElementById("addBtn").addEventListener("click", () => {
+      const newItem = document.createElement("li");
+      newItem.textContent = `새 아이템 ${list.children.length + 1}`;
+      list.appendChild(newItem);
+    });
+
+    // 2) 노드 삭제
+    document.getElementById("removeBtn").addEventListener("click", () => {
+      if (list.lastElementChild) {
+        list.removeChild(list.lastElementChild);
+      }
+    });
+
+    // 3) 노드 수정
+    document.getElementById("editBtn").addEventListener("click", () => {
+      if (list.firstElementChild) {
+        list.firstElementChild.textContent = "수정된 첫 번째 아이템";
+      }
+    });
+  });
+</script>
+</head>
+<body>
+  <h1>DOM 노드 추가/삭제/수정 예시</h1>
+  <ul id="myList">
+    <li>아이템 1</li>
+    <li>아이템 2</li>
+  </ul>
+  <button id="addBtn">추가</button>
+  <button id="removeBtn">삭제</button>
+  <button id="editBtn">수정</button>
+</body>
+</html>

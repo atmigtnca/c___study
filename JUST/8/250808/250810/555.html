@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>함수 예시</title>
+<script>
+  // 1) 일반 함수 선언
+  function greet(name) {
+    console.log(`안녕하세요, ${name}님!`);
+  }
+  greet("홍길동");
+
+  // 2) 함수 표현식
+  const add = function(a, b) {
+    return a + b;
+  };
+  console.log("2 + 3 =", add(2, 3));
+
+  // 3) 화살표 함수
+  const multiply = (a, b) => a * b;
+  console.log("4 × 5 =", multiply(4, 5));
+
+  // 4) 즉시 실행 함수 (IIFE)
+  (function() {
+    console.log("즉시 실행 함수가 호출되었습니다!");
+  })();
+
+  // 5) 매개변수 기본값
+  function introduce(name = "손님") {
+    console.log(`환영합니다, ${name}님`);
+  }
+  introduce();
+  introduce("이몽룡");
+</script>
+</head>
+<body>
+  <h1>JavaScript 함수 예시</h1>
+  <p>콘솔(F12)에서 함수 실행 결과를 확인하세요.</p>
+</body>
+</html>

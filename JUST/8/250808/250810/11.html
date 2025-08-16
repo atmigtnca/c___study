@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>CSS 선택자 예시</title>
+<style>
+  /* 전체 선택자 */
+  * {
+    font-family: Arial, sans-serif;
+  }
+
+  /* 타입 선택자 */
+  p {
+    color: blue;
+  }
+
+  /* 클래스 선택자 */
+  .highlight {
+    background-color: yellow;
+  }
+
+  /* ID 선택자 */
+  #special {
+    border: 2px solid red;
+  }
+
+  /* 그룹 선택자 */
+  h1, h2 {
+    color: green;
+  }
+
+  /* 후손 선택자 */
+  div p {
+    font-style: italic;
+  }
+
+  /* 자식 선택자 */
+  div > span {
+    color: purple;
+  }
+
+  /* 상속 예시 */
+  .theme {
+    color: orange; /* 글자색은 기본적으로 하위 요소에 상속 */
+  }
+  .theme a {
+    color: inherit; /* a 태그 기본 파란색 대신 부모 색상 상속 */
+    text-decoration: none;
+  }
+
+  /* 특이성 예시 */
+  .note p {
+    color: gray; /* 특이성: 0-0-2 */
+  }
+  #box.note p {
+    color: red;  /* 특이성: 1-0-2 → 더 강함 */
+  }
+</style>
+</head>
+<body>
+  <h1>그룹 선택자 예시</h1>
+  <h2>이것도 그룹 선택자 예시</h2>
+
+  <p>타입 선택자(p) 적용됨</p>
+  <p class="highlight">클래스 선택자 적용됨</p>
+  <p id="special">ID 선택자 적용됨</p>
+
+  <div>
+    <p>후손 선택자 적용됨 (div 안의 p)</p>
+    <span>자식 선택자 적용됨 (div > span)</span>
+  </div>
+
+  <div class="theme">
+    상속 예시: <a href="#">링크도 부모 색상(주황색) 상속</a>
+  </div>
+
+  <div id="box" class="note">
+    <p>특이성 예시: 이 문장은 빨간색 (ID 규칙이 더 강함)</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>DOM 다루기 예시</title>
+<script>
+  window.addEventListener("load", () => {
+    // 1) getElementById
+    const title = document.getElementById("main-title");
+    console.log(title);
+    title.style.color = "red";
+
+    // 2) getElementsByClassName
+    const items = document.getElementsByClassName("list-item");
+    for (let item of items) {
+      item.style.fontWeight = "lighter";
+    }
+
+    // 3) querySelector (첫 번째 요소 선택)
+    const firstItem = document.querySelector(".list-item");
+    firstItem.style.backgroundColor = "lightyellow";
+
+    // 4) querySelectorAll (모든 요소 선택)
+    const allItems = document.querySelectorAll(".list-item");
+    allItems.forEach((el, idx) => {
+      el.textContent = `아이템 ${idx + 1}`;
+    });
+  });
+</script>
+</head>
+<body>
+  <h1 id="main-title">DOM 다루기 예시</h1>
+  <ul>
+    <li class="list-item">첫 번째</li>
+    <li class="list-item">두 번째</li>
+    <li class="list-item">세 번째</li>
+  </ul>
+</body>
+</html>

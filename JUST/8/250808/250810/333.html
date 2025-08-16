@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>자료형 예시</title>
+<script>
+  // 숫자 (Number)
+  let age = 25;
+  console.log("나이:", age);
+
+  // 문자열 (String)
+  let name = "홍길동";
+  console.log("이름:", name);
+
+  // 템플릿 리터럴 (백틱)
+  console.log(`안녕하세요, 제 이름은 ${name}이고 나이는 ${age}살입니다.`);
+
+  // 배열 (Array)
+  let fruits = ["사과", "바나나", "포도"];
+  console.log("과일 목록:", fruits);
+  console.log("첫 번째 과일:", fruits[0]);
+
+  // 객체 (Object)
+  let person = {
+    name: "홍길동",
+    age: 25,
+    greet: function() {
+      console.log(`안녕하세요, 저는 ${this.name}입니다.`);
+    }
+  };
+  console.log("person 객체:", person);
+  console.log("person의 이름:", person.name);
+  person.greet();
+</script>
+</head>
+<body>
+  <h1>JavaScript 자료형 예시</h1>
+  <p>콘솔(F12)에서 자료형별 결과를 확인하세요.</p>
+</body>
+</html>

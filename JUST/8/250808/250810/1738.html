@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DIV 옵션 실습 랩</title>
+    <style>
+      :root {
+        --gap: 12px;
+        --panel: 320px;
+      }
+      * {
+        box-sizing: border-box;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial,
+          "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        padding: 16px;
+        border-bottom: 1px solid #e5e7eb;
+        position: sticky;
+        top: 0;
+        background: #fff;
+        z-index: 2;
+      }
+      header h1 {
+        margin: 0 0 4px 0;
+        font-size: 18px;
+      }
+      header p {
+        margin: 0;
+        color: #6b7280;
+        font-size: 14px;
+      }
+      main {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) var(--panel);
+        gap: var(--gap);
+        padding: var(--gap);
+      }
+      #stageWrap {
+        padding: var(--gap);
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        min-height: 60vh;
+        position: relative;
+        overflow-x: auto;
+      }
+      #stageNote {
+        color: #6b7280;
+        font-size: 13px;
+        margin-bottom: 8px;
+      }
+      #box {
+        width: 260px;
+        height: 140px;
+        background: #bfdbfe;
+        border: 1px solid #60a5fa;
+        border-radius: 8px;
+        padding: 12px;
+        margin: 8px;
+        box-shadow: none;
+        display: block;
+        position: static;
+        overflow: hidden;
+        max-width: 100%;
+      }
+      #boxInner {
+        background: rgba(255, 255, 255, 0.6);
+        border: 1px dashed #2563eb;
+        padding: 8px 10px;
+        border-radius: 6px;
+        width: max-content;
+      }
+      aside {
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 12px;
+        position: sticky;
+        top: 64px;
+        height: calc(100vh - 96px);
+        overflow: auto;
+      }
+      fieldset {
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        margin-bottom: var(--gap);
+      }
+      legend {
+        padding: 0 6px;
+        color: #374151;
+      }
+      .row {
+        display: grid;
+        grid-template-columns: 130px 1fr;
+        gap: 8px;
+        align-items: center;
+        padding: 8px 10px;
+      }
+      .row > label {
+        font-size: 13px;
+        color: #374151;
+      }
+      .muted {
+        color: #6b7280;
+        font-size: 12px;
+      }
+      input[type="range"] {
+        width: 100%;
+      }
+      code {
+        background: #eef2ff;
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+      .help {
+        font-size: 12px;
+        color: #6b7280;
+        padding: 0 10px 8px;
+      }
+      .two {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      #resetBtn {
+        width: 100%;
+        padding: 10px 12px;
+      }
+
+      @media (max-width: 900px) {
+        main {
+          grid-template-columns: 1fr;
+        }
+        aside {
+          position: static;
+          height: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>div 태그 옵션 실습 랩</h1>
+      <p>
+        크기 · 여백 · 테두리 · 정렬(Flex) · 배치(Position) · 배경 · 반응형을
+        실시간으로 조정해 보세요.
+      </p>
+    </header>
+    <main>
+      <section id="stage">
+        <div id="stageWrap">
+          <div id="stageNote">
+            💡 오른쪽 패널의 옵션을 바꾸면 이 박스(<code>#box</code>)에 바로
+            적용됩니다.
+          </div>
+          <div id="box">
+            <div id="boxInner">
+              안쪽 박스 (#boxInner)<br /><span class="muted"
+                >absolute/flex 효과 확인용</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside>
+        <form id="controls" onsubmit="return false;">
+          <fieldset>
+            <legend>크기 / 여백 / 테두리</legend>
+            <div class="row">
+              <label for="w">width</label>
+              <input id="w" type="range" min="100" max="800" value="260" />
+            </div>
+            <div class="row">
+              <label for="h">height</label>
+              <input id="h" type="range" min="80" max="400" value="140" />
+            </div>
+            <div class="row">
+              <label for="padding">padding</label>
+              <input id="padding" type="range" min="0" max="48" value="12" />
+            </div>
+            <div class="row">
+              <label for="margin">margin</label>
+              <input id="margin" type="range" min="0" max="48" value="8" />
+            </div>
+            <div class="row">
+              <label for="border">border(px)</label>
+              <input id="border" type="range" min="0" max="12" value="1" />
+            </div>
+            <div class="row">
+              <label for="radius">border-radius</label>
+              <input id="radius" type="range" min="0" max="32" value="8" />
+            </div>
+            <div class="row">
+              <label for="shadow">box-shadow</label>
+              <select id="shadow">
+                <option value="none">none</option>
+                <option value="0 1px 2px rgba(0,0,0,.1)">xs</option>
+                <option value="0 2px 8px rgba(0,0,0,.15)">sm</option>
+                <option value="0 8px 24px rgba(0,0,0,.2)">lg</option>
+              </select>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>정렬 (display / flex)</legend>
+            <div class="help">
+              display를 flex로 바꾸면 아래 정렬 옵션이 적용됩니다.
+            </div>
+            <div class="row">
+              <label for="display">display</label>
+              <select id="display">
+                <option value="block">block</option>
+                <option value="inline-block">inline-block</option>
+                <option value="flex">flex</option>
+              </select>
+            </div>
+            <div class="row">
+              <label for="justify">justify-content</label>
+              <select id="justify" disabled>
+                <option>flex-start</option>
+                <option>center</option>
+                <option>flex-end</option>
+                <option>space-between</option>
+                <option>space-around</option>
+                <option>space-evenly</option>
+              </select>
+            </div>
+            <div class="row">
+              <label for="align">align-items</label>
+              <select id="align" disabled>
+                <option>stretch</option>
+                <option>flex-start</option>
+                <option selected>center</option>
+                <option>flex-end</option>
+                <option>baseline</option>
+              </select>
+            </div>
+            <div class="row">
+              <label for="gap">gap</label>
+              <input
+                id="gap"
+                type="range"
+                min="0"
+                max="32"
+                value="0"
+                disabled
+              />
+            </div>
+            <div class="help">안쪽 박스는 flex 정렬 확인용입니다.</div>
+          </fieldset>
+
+          <fieldset>
+            <legend>배치 (position)</legend>
+            <div class="row">
+              <label for="position">position</label>
+              <select id="position">
+                <option>static</option>
+                <option>relative</option>
+                <option>absolute</option>
+                <option>fixed</option>
+                <option>sticky</option>
+              </select>
+            </div>
+            <div class="row">
+              <label for="top">top (px)</label>
+              <input
+                id="top"
+                type="range"
+                min="-40"
+                max="120"
+                value="0"
+                disabled
+              />
+            </div>
+            <div class="row">
+              <label for="left">left (px)</label>
+              <input
+                id="left"
+                type="range"
+                min="-40"
+                max="120"
+                value="0"
+                disabled
+              />
+            </div>
+            <div class="help">
+              absolute/fixed일 때 <code>#box</code>가 이동합니다. sticky는
+              스크롤해보세요.
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>배경</legend>
+            <div class="row">
+              <label for="bgColor">배경색</label>
+              <input id="bgColor" type="color" value="#bfdbfe" />
+            </div>
+            <div class="row">
+              <label for="bgImgOn">배경이미지</label>
+              <select id="bgImgOn">
+                <option value="off">off</option>
+                <option value="on">on</option>
+              </select>
+            </div>
+            <div class="row">
+              <label for="bgUrl">이미지 URL</label>
+              <input
+                id="bgUrl"
+                type="text"
+                value="https://images.unsplash.com/photo-1520975922284-7c0e2bfc7b44?w=800"
+              />
+            </div>
+            <div class="two">
+              <div class="row">
+                <label for="bgSize">size</label>
+                <select id="bgSize">
+                  <option>cover</option>
+                  <option>contain</option>
+                  <option>auto</option>
+                </select>
+              </div>
+              <div class="row">
+                <label for="bgPos">position</label>
+                <select id="bgPos">
+                  <option>center</option>
+                  <option>top</option>
+                  <option>bottom</option>
+                  <option>left</option>
+                  <option>right</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <label for="bgRepeat">repeat</label>
+              <select id="bgRepeat">
+                <option>no-repeat</option>
+                <option>repeat</option>
+                <option>repeat-x</option>
+                <option>repeat-y</option>
+              </select>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>반응형 / 단위</legend>
+            <div class="row">
+              <label for="responsive">폭 단위</label>
+              <select id="responsive">
+                <option value="px">px 고정</option>
+                <option value="%">부모의 %</option>
+                <option value="vw">화면 vw</option>
+              </select>
+            </div>
+            <div class="help">
+              px은 고정, %는 부모 기준, vw는 화면 너비 기준(100vw = 화면 가로 꽉
+              채움)
+            </div>
+          </fieldset>
+
+          <button id="resetBtn" type="button">초기값으로 리셋</button>
+        </form>
+      </aside>
+    </main>
+
+    <script>
+      const el = {
+        box: document.getElementById("box"),
+        inner: document.getElementById("boxInner"),
+        w: document.getElementById("w"),
+        h: document.getElementById("h"),
+        padding: document.getElementById("padding"),
+        margin: document.getElementById("margin"),
+        border: document.getElementById("border"),
+        radius: document.getElementById("radius"),
+        shadow: document.getElementById("shadow"),
+        display: document.getElementById("display"),
+        justify: document.getElementById("justify"),
+        align: document.getElementById("align"),
+        gap: document.getElementById("gap"),
+        position: document.getElementById("position"),
+        top: document.getElementById("top"),
+        left: document.getElementById("left"),
+        bgColor: document.getElementById("bgColor"),
+        bgImgOn: document.getElementById("bgImgOn"),
+        bgUrl: document.getElementById("bgUrl"),
+        bgSize: document.getElementById("bgSize"),
+        bgPos: document.getElementById("bgPos"),
+        bgRepeat: document.getElementById("bgRepeat"),
+        responsive: document.getElementById("responsive"),
+        resetBtn: document.getElementById("resetBtn"),
+      };
+
+      function apply() {
+        // Size / Spacing / Border
+        const unit = el.responsive.value;
+        const widthVal =
+          unit === "px" ? el.w.value + "px" : unit === "%" ? "50%" : "60vw";
+        el.box.style.width = widthVal;
+        el.box.style.height = el.h.value + "px";
+        el.box.style.padding = el.padding.value + "px";
+        el.box.style.margin = el.margin.value + "px";
+        el.box.style.borderWidth = el.border.value + "px";
+        el.box.style.borderStyle = el.border.value === "0" ? "none" : "solid";
+        el.box.style.borderColor = "#60a5fa";
+        el.box.style.borderRadius = el.radius.value + "px";
+        el.box.style.boxShadow = el.shadow.value;
+
+        // Display / Flex
+        el.box.style.display = el.display.value;
+        const isFlex = el.display.value === "flex";
+        el.justify.disabled = el.align.disabled = el.gap.disabled = !isFlex;
+        el.box.style.justifyContent = isFlex ? el.justify.value : "";
+        el.box.style.alignItems = isFlex ? el.align.value : "";
+        el.box.style.gap = isFlex ? el.gap.value + "px" : "";
+
+        // Position
+        const pos = el.position.value;
+        el.box.style.position = pos;
+        const needsOffset =
+          pos === "absolute" || pos === "fixed" || pos === "relative";
+        el.top.disabled = el.left.disabled = !needsOffset;
+        el.box.style.top = needsOffset ? el.top.value + "px" : "";
+        el.box.style.left = needsOffset ? el.left.value + "px" : "";
+        if (pos === "sticky") {
+          el.box.style.top = "8px";
+        }
+
+        // Background
+        el.box.style.backgroundColor = el.bgColor.value;
+        if (el.bgImgOn.value === "on") {
+          el.box.style.backgroundImage = `url('${el.bgUrl.value}')`;
+          el.box.style.backgroundSize = el.bgSize.value;
+          el.box.style.backgroundPosition = el.bgPos.value;
+          el.box.style.backgroundRepeat = el.bgRepeat.value;
+        } else {
+          el.box.style.backgroundImage = "none";
+        }
+      }
+
+      // Bind events
+      Object.values(el).forEach((e) => {
+        if (!e || !("addEventListener" in e)) return;
+        e.addEventListener("input", apply);
+        e.addEventListener("change", apply);
+      });
+
+      // Reset
+      el.resetBtn.addEventListener("click", () => {
+        document.getElementById("controls").reset();
+        // set defaults
+        el.w.value = 260;
+        el.h.value = 140;
+        el.padding.value = 12;
+        el.margin.value = 8;
+        el.border.value = 1;
+        el.radius.value = 8;
+        el.shadow.value = "none";
+        el.display.value = "block";
+        el.justify.value = "flex-start";
+        el.align.value = "center";
+        el.gap.value = 0;
+        el.position.value = "static";
+        el.top.value = 0;
+        el.left.value = 0;
+        el.bgColor.value = "#bfdbfe";
+        el.bgImgOn.value = "off";
+        el.bgUrl.value =
+          "https://images.unsplash.com/photo-1520975922284-7c0e2bfc7b44?w=800";
+        el.bgSize.value = "cover";
+        el.bgPos.value = "center";
+        el.bgRepeat.value = "no-repeat";
+        el.responsive.value = "px";
+        apply();
+      });
+
+      // Initial apply
+      apply();
+    </script>
+  </body>
+</html>

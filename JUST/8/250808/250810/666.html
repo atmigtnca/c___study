@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>이벤트 예시</title>
+<script>
+  // 1) 페이지 로딩 이벤트
+  window.addEventListener("load", () => {
+    console.log("페이지 로딩 완료!");
+  });
+
+  // 2) 마우스 클릭 이벤트
+  function handleClick() {
+    alert("버튼이 클릭되었습니다!");
+    console.log(document);
+  }
+
+  // 3) 키보드 입력 이벤트
+  function handleKey(event) {
+    console.log(`키 입력: ${event.key}`);
+    console.log(event);
+  }
+
+  // 4) 폼 제출 이벤트
+  function handleSubmit(event) {
+    event.preventDefault(); // 페이지 새로고침 방지
+    const name = document.getElementById("name").value;
+    alert(`폼 제출됨! 이름: ${name}`);
+    console.log(event);
+  }
+</script>
+</head>
+<body>
+  <h1>이벤트 예시</h1>
+
+  <!-- 마우스 클릭 -->
+  <button onclick="handleClick()">클릭 이벤트</button>
+
+  <!-- 키보드 입력 -->
+  <input type="text" placeholder="키보드 입력" onkeydown="handleKey(event)">
+
+  <!-- 폼 제출 -->
+  <form onsubmit="handleSubmit(event)">
+    <input type="text" id="name" placeholder="이름 입력">
+    <button type="submit">제출</button>
+  </form>
+</body>
+</html>
