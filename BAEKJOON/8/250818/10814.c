@@ -10,9 +10,8 @@ int main(void){
     }
 
     for (int k = 0; k < n; k++){
-        for (int j = k; j< n-k; j++){
-            if (age[k] > age[j])
-            {
+        for (int j = k; j < n-k; j++){
+            if (age[k] > age[j]){
                 int tmp = age[j];
                 age[j] = age[k];
                 age[k] = tmp;
@@ -20,10 +19,10 @@ int main(void){
                 strcpy(cmp, name[j]);
                 strcpy(name[j], name[k]);
                 strcpy(name[k], cmp);
-                printf("%d %s\n", age[j], name[j]);
             }
         }
     }
+
 
     for (int i = 0; i < n; i++) printf("%d %s\n", age[i], name[i]);
     
