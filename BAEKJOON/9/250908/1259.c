@@ -2,7 +2,7 @@
 #include <string.h>
 
 int ptr(int a) {
-    int max = 0, rst = 0;
+    int max, rst = 0;
     char ptr[6] = {'\0'};
     sprintf(ptr, "%d", a);
     max = strlen(ptr);
