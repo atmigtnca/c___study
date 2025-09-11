@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Transform · Transition · Animation 간단 예시</title>
+<style>
+  /* 박스 기본 스타일 */
+  .box {
+    width: 80px; height: 80px;
+    background: skyblue;
+    margin: 10px;
+    display: inline-block;
+    text-align: center;
+    line-height: 80px;
+    font-weight: bold;
+  }
+
+  /* Transform 예시 */
+  .transform:hover {
+    transform: rotate(15deg) scale(1.2);
+  }
+
+  /* Transition 예시 */
+  .transition {
+    transition: all 0.3s ease;
+  }
+  .transition:hover {
+    background: orange;
+    transform: translateY(-10px);
+  }
+
+  /* Animation 예시 */
+  @keyframes bounce {
+    0%, 50% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  .animation {
+    animation: bounce 3s infinite;
+  }
+</style>
+</head>
+<body>
+  <h2>Transform</h2>
+  <div class="box transform">T</div>
+
+  <h2>Transition</h2>
+  <div class="box transition">Tr</div>
+
+  <h2>Animation</h2>
+  <div class="box animation">A</div>
+</body>
+</html>

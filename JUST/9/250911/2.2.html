@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>박스 모델 비교 예시</title>
+<style>
+  body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+  }
+
+  .box {
+    width: 200px;
+    background-color: lightblue;
+    margin: 20px;           /* 요소 밖 여백 */
+    padding: 15px;          /* 요소 안 여백 */
+    border: 5px solid blue; /* 테두리 */
+  }
+
+  /* 비교용 다른 스타일 */
+  .margin-large {
+    margin: 50px;
+  }
+  .padding-large {
+    padding: 40px;
+  }
+  .border-thick {
+    border: 10px solid darkblue;
+  }
+
+  .container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+</style>
+</head>
+<body>
+  <h1>박스 모델 (margin, padding, border) 비교</h1>
+
+  <div class="container">
+    <div class="box">
+      기본 박스<br>
+      margin: 20px<br>
+      padding: 15px<br>
+      border: 5px solid blue
+    </div>
+
+    <div class="box margin-large">
+      margin: 50px<br>
+      padding: 15px<br>
+      border: 5px solid blue
+    </div>
+
+    <div class="box padding-large">
+      margin: 20px<br>
+      padding: 40px<br>
+      border: 5px solid blue
+    </div>
+
+    <div class="box border-thick">
+      margin: 20px<br>
+      padding: 15px<br>
+      border: 10px solid darkblue
+    </div>
+  </div>
+</body>
+</html>

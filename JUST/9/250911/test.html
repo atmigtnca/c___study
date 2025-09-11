@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>HTML 기본 태그 예시</title>
+</head>
+<body>
+  <!-- 제목 태그 -->
+  <h1>HTML 기본 태그 예시</h1>
+  <h2>이건 H2 제목</h2>
+  <h3>이건 H3 제목</h3>
+
+  <!-- 문단 -->
+  <p>이 문장은 문단(paragraph)입니다. <b>이 부분은 굵게(b) 표시</b>됩니다.</p>
+
+  <hr> <!-- 구분선 -->
+
+  <!-- 순서 없는 목록 -->
+  <h3>순서 없는 목록 (ul, li)</h3>
+  <ul>
+    <li>사과</li>
+    <li>바나나</li>
+    <li>포도</li>
+  </ul>
+
+  <!-- 순서 있는 목록 -->
+  <h3>순서 있는 목록 (ol, li)</h3>
+  <ol>
+    <li>첫 번째</li>
+    <li>두 번째</li>
+    <li>세 번째</li>
+  </ol>
+
+  <hr> <!-- 구분선 -->
+
+  <!-- 표 -->
+  <h3>표 (table, tr, th, td)</h3>
+  <table border="1">
+    <tr>
+      <th>이름</th>
+      <th>나이</th>
+    </tr>
+    <tr>
+      <td>홍길동</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <td>김철수</td>
+      <td>30</td>
+    </tr>
+  </table>
+
+  <hr> <!-- 구분선 -->
+
+  <!-- 이미지 -->
+  <h3>이미지 (img)</h3>
+  <img src="https://via.placeholder.com/150" alt="샘플 이미지">
+
+  <br> <!-- 줄바꿈 -->
+
+  <!-- 링크 -->
+  <h3>링크 (a)</h3>
+  <a href="https://www.google.com" target="_blank">구글로 이동</a>
+
+  <hr> <!-- 구분선 -->
+
+  <!-- 폼 -->
+  <h3>폼 (form, label, input, checkbox, textarea, button)</h3>
+  <form>
+    <label for="name">이름:</label>
+    <input type="text" id="name" name="name"><br><br>
+
+    <label>
+      <input type="checkbox" name="subscribe"> 뉴스레터 구독
+    </label><br><br>
+
+    <label for="message">메시지:</label><br>
+    <textarea id="message" name="message" rows="4" cols="30"></textarea><br><br>
+
+    <button type="submit">제출</button>
+  </form>
+
+  <hr> <!-- 구분선 -->
+
+  <!-- 구역 나누기 -->
+  <h3>구역 나누기 (div)</h3>
+  <div style="border: 1px solid black; padding: 10px;">
+    이 부분은 div로 감싼 영역입니다.
+  </div>
+</body>
+</html>
