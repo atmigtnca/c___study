@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int cmp(const void *a, const void *b) { return *(int *)a - *(int *)b; }
+int cmp(const void *a, const void *b){
+    int x = *(const int*)a, y = *(const int*)b;
+    return x<y ? -1 : x>y;
+}
 int bs(int *a, int n, int t)
 {
     int l = 0, h = n - 1;
@@ -24,7 +27,7 @@ int main()
     int a[n];
     for (int i = 0; i < n; i++)
         scanf("%d", a + i);
-    qsort(a, n, 4, cmp);
+    qsort(a, n, sizeof *a, cmp);
     scanf("%d", &m);
     while (m--)
     {
