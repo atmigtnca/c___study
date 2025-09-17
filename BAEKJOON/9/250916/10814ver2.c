@@ -21,40 +21,26 @@ int main(void)
     {
         scanf("%d %s", &ar[i].ag, ar[i].na);
         ar[i].se = i;
-        for (int j = 0; j <= i; j++)
+    }
+
+    for (int a = 0; a < n; a++)
+    {
+        for (int b = a; b < n; b++)
         {
-            if (i == j)
+            if (a == b)
             {
                 continue;
-                printf("1\n");
             }
-            if ((ar[i].ag == ar[j].ag) && (ar[i].se > ar[j].se))
+            if ((ar[a].ag == ar[b].ag) && (ar[a].se > ar[b].se))
             {
-                com(ar, i, j);
-                printf("2\n");
+                com(ar, a, b);
             }
-            else if (ar[i].ag > ar[j].ag)
+            else if (ar[a].ag > ar[b].ag)
             {
-                com(ar, i, j);
-                printf("3\n");
+                com(ar, a, b);
             }
         }
     }
-
-    // for (int a = 0; a < n; a++)
-    // {
-    //     for (int b = a + 1; b < n; b++)
-    //     {
-    // if ((ar[a].ag == ar[b].ag) && (ar[a].se > ar[b].se))
-    // {
-    //     com(ar, a, b);
-    // }
-    // else if (ar[a].ag > ar[b].ag)
-    // {
-    //     com(ar, a, b);
-    // }
-    //     }
-    // }
 
     for (int i = 0; i < n; i++)
     {
@@ -75,7 +61,10 @@ void com(mem *ptr, int a, int b)
     strcpy(ptr[a].na, ptr[b].na);
     strcpy(ptr[b].na, ex);
 
-    // int tMp = ptr[a].se;
-    // ptr[a].se = ptr[b].se;
-    // ptr[b].se = tMp;
+    int tMp = ptr[a].se;
+    ptr[a].se = ptr[b].se;
+    ptr[b].se = tMp;
 }
+
+// mergeSort
+
