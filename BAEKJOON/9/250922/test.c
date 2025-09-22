@@ -7,11 +7,10 @@ int main(void)
     float gp = 0, aL = 0; // gp: 학점
 
     char obj[LE] = {'\0'};
-    fgets(obj, sizeof(obj), stdin);
-    int ln = strlen(obj);
 
-    printf("%d\n", obj[ln - 6] - 48);
+    scanf("%s", obj);
 
+    printf("%d\n", strlen(obj));
     // if (gp == 0)
     // {
     //     printf("0.000000\n");
