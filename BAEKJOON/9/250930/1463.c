@@ -4,28 +4,6 @@ int min(int a, int b)
 {
 }
 
-// int f(int x)
-// {
-//     int ret = cache[x];
-
-//     if (ret != inf)
-//     {
-//         return ret;
-//     }
-
-//     if (x % 2 == 0)
-//     {
-//         ret = min(ret, f(x / 2) + 1);
-//     }
-
-//     if (x % 3 == 0)
-//     {
-//         ret = min(ret, f(x / 3) + 1);
-//     }
-
-//     return ret;
-// }
-
 int main(void)
 {
     int n;

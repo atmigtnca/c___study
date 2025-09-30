@@ -4,7 +4,7 @@ int main(void)
 {
     int n, m;
     scanf("%d %d", &n, &m);
-    int ga[n + 1];
+    int ga[n];
 
     for (int i = 0; i < n; i++)
     {
