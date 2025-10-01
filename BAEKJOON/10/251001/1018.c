@@ -28,7 +28,7 @@ int main(void)
         }
     }
 
-        // for (int i = 0; i < y; i++)
+    // for (int i = 0; i < y; i++)
     // {
     //     for (int j = 0; j < x; j++)
     //     {
@@ -39,3 +39,10 @@ int main(void)
 
     return 0;
 }
+
+/*
+ 1  3  6 10
+ 3  8 15 24
+ 6 15 27 42
+10 24 42 64
+*/
