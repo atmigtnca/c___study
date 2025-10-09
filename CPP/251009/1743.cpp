@@ -3,13 +3,11 @@
 #include <vector>
 using namespace std;
 
-int main(void)
+int main()
 {
-    vector<vector<string>> groups;
-
-    groups.push_back({"HTML", "CSS", "JavaScript"});
-    groups.push_back({"C++", "Java", "Python", "GO"});
-    groups.push_back({"SQL", "MongoDB"});
+    vector<vector<string>> groups = {{"HTML", "CSS", "JavaScript"},
+                                     {"C++", "Java", "Python", "GO"},
+                                     {"SQL", "MongoDB"}};
 
     for (const auto &group : groups)
     {
