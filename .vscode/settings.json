@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "stdio.h": "c",
-        "ios": "c"
+        "ios": "c",
+        "iostream": "cpp"
     }
 }
