@@ -6,42 +6,37 @@ int main()
     ios::sync_with_stdio(0);
     cin.tie(0);
 
-    int n, m, rst = 0;
+    int n, m;
     cin >> n >> m;
 
-    int ch[n][n][n], chan[m];
+    int matrix[2][n][n];
 
-    for (size_t h = 0; h < 2; h++)
+    for (size_t h = 0; h < 2; ++h)
     {
-        for (size_t j = 0; j < n; j++)
+        for (size_t i = 0; i < n; ++i)
         {
-            for (size_t i = 0; i < n; i++)
+            for (size_t j = 0; j < n; ++j)
             {
-                cin >> ch[h][j][i];
+                cin >> matrix[h][i][j];
             }
         }
     }
 
-    for (size_t i = 0; i < m; i++)
+    long long rst = 0;
+    for (size_t i = 0; i < m; ++i)
     {
-        cin >> chan[i];
-    }
-
-    for (size_t i = 0; i < m; i++)
-    {
-        int MAX = 0;
-        for (int j = 0; j < n; j++)
+        int M, max = 0;
+        cin >> M;
+        for (size_t j = 0; j < n; ++j)
         {
-            int yy = chan[i];
-            int jr = ch[1][j][yy] - ch[2][j][yy];
+            int jr = matrix[0][j][M - 1] - matrix[1][j][M - 1];
             int b = (jr > 0 ? jr : -jr);
-
-            if (b > MAX)
+            if (b > max)
             {
-                MAX = b;
+                max = b;
             }
         }
-        rst += MAX;
+        rst += max;
     }
 
     cout << rst << "\n";
