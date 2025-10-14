@@ -33,5 +33,10 @@ int main()
         cout << word[i] << '\n';
     }
 
+    for (auto &a : word)
+    {
+        cout << a << '\n';
+    }
+
     return 0;
 }
