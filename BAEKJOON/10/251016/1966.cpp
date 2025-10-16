@@ -7,21 +7,19 @@ using namespace std;
 
 int pout(int idx, queue<pair<int, int>> &prt, vector<int> &mlist)
 {
-    int cut = 0, idd = 0;
+    int cut = 0;
     while (true)
     {
-        if (prt.front().first == mlist[idd])
+        if (prt.front().first == mlist[cut])
         {
+            ++cut;
             if (prt.front().second == idx)
             {
-                ++cut;
                 break;
             }
             else
             {
                 prt.pop();
-                ++idd;
-                ++cut;
             }
         }
         else
