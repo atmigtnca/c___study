@@ -4,28 +4,25 @@
 #include <vector>
 using namespace std;
 
-int main()
-{
-    ios::sync_with_stdio(0);
-    cin.tie(0);
+int main() {
+  ios::sync_with_stdio(0);
+  cin.tie(0);
 
-    vector<pair<int, int>> xy;
+  vector<pair<int, int>> xy;
 
-    int n, x, y;
-    cin >> n;
+  int n, x, y;
+  cin >> n;
 
-    for (size_t i = 0; i < n; i++)
-    {
-        cin >> x >> y;
-        xy.push_back({x, y});
-    }
+  for (size_t i = 0; i < n; i++) {
+    cin >> x >> y;
+    xy.push_back({x, y});
+  }
 
-    sort(xy.begin(), xy.end());
+  sort(xy.begin(), xy.end());
 
-    for (auto &a : xy)
-    {
-        cout << a.first << ' ' << a.second << '\n';
-    }
+  for (auto& a : xy) {
+    cout << a.first << ' ' << a.second << '\n';
+  }
 
-    return 0;
+  return 0;
 }
