@@ -10,11 +10,21 @@ int main()
     int n;
     cin >> n;
 
-    int cut = 0, srt = 0;
+    int cut = 1, srt = 1;
+    int cir = 10, rst = 0;
 
-    while (srt != n)
+    while (srt <= n)
     {
+        if (srt == cir)
+        {
+            cir *= 10;
+            cut++;
+        }
+        rst += cut;
+        srt++;
     }
+
+    cout << rst << '\n';
 
     return 0;
 }
