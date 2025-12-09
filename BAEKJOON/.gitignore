@@ -1,0 +1,10 @@
+# VS Code 설정 디렉토리 무시 (루트 위치)
+.vscode/
+
+# 또는 모든 하위 위치의 .vscode 무시
+**/.vscode/
+
+# 관련 파일도 함께 무시 (선택)
+.vscode/settings.json
+.vscode/tasks.json
+**/.vscode/settings.json
