@@ -7,7 +7,7 @@ int ipt[10];
 int arr[10];
 bool iuse[10001];
 
-void fnc(int k, int e)
+void fnc(int k)
 {
     if (k == m)
     {
@@ -18,16 +18,14 @@ void fnc(int k, int e)
         cout << '\n';
         return;
     }
-    for (int i = e; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
         int num = ipt[i];
-        if (!iuse[num])
-        {
-            arr[k] = num;
-            iuse[num] = true;
-            fnc(k + 1, i);
-            iuse[num] = false;
-        }
+        arr[k] = num;
+        
+        iuse[num] = true;
+        fnc(k + 1);
+        iuse[num] = false;
     }
 }
 
@@ -43,7 +41,7 @@ int main()
     }
     sort(ipt, ipt + n);
 
-    fnc(0, 0);
+    fnc(0);
 
     return 0;
 }
