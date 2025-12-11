@@ -11,6 +11,7 @@ int ngefnc(int a) {}
 void iptfnc()
 {
     cin >> N;
+
     aray.resize(N);
     for (int i = 0; i < N; i++)
     {
