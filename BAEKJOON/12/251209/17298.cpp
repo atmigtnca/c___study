@@ -6,6 +6,8 @@ using ll = long long;
 vector<int> aray;
 int N;
 
+int ngefnc(int a) {}
+
 void iptfnc()
 {
     cin >> N;
