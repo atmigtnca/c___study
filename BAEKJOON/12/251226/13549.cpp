@@ -1,21 +1,26 @@
+#include <deque>
 #include <iostream>
-#include <queue>
-#include <utility>
+// #include <utility>
 #include <vector>
 using namespace std;
 using ll = long long;
 vector<int> vis;
-deque<pair<int, int>> cur;
+deque<int> cur;
 int N, K;
 
 int hideNseek()
 {
     while (!cur.empty())
     {
-        auto [spt, wig] = cur.front();
+        int spt = cur.front();
         cur.pop_front();
 
-        int nzt[3] = {spt * 2, spt + 1, spt - 1};
+        if (spt == K)
+        {
+            return vis[spt];
+        }
+
+        int nzt[3] = {spt * 2, spt - 1, spt + 1};
 
         for (int i = 0; i < 3; i++)
         {
@@ -30,21 +35,17 @@ int hideNseek()
                 continue;
             }
 
-            if (i == 2)
+            int wig = i == 0 ? 0 : 1;
+            vis[next] = vis[spt] + wig;
+
+            if (i == 0)
             {
-                vis[next] = vis[spt];
+                cur.push_front(next);
             }
             else
             {
-                vis[next] = vis[spt] + 1;
+                cur.push_back(next);
             }
-
-            if (next == K)
-            {
-                return vis[next];
-            }
-
-            cur.push(next);
         }
     }
     return 0;
@@ -54,7 +55,7 @@ void input()
 {
     cin >> N >> K;
     vis.resize(100001, -1);
-    // cur.push_back({N, 0});
+    cur.push_back(N);
     vis[N] = 0;
 
     return;
